@@ -1,0 +1,72 @@
+.txt_button {
+    font-size: 50px;
+    color: whitesmoke;
+    font-weight: 400;
+    background-color: black;
+    border: 1px solid gray;
+    height: 80px;
+    width: 98.3%;
+}
+
+.calc {
+    margin: auto;
+    background-color: black;
+    border: 2px solid whitesmoke;
+    width: 300px;
+    height: 517px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 40px;
+} 
+
+.num_button,
+.calc_button,
+.c,
+.brace,
+.percent,
+.del,
+.stop,
+.equal {
+    padding: 30px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.num_button {
+    background-color: gray;
+}
+
+.num_button:hover {
+    background-color: rgb(180, 178, 178);
+}
+
+.calc_button,
+.equal {
+    background-color: orange;
+}
+
+.calc_button:hover,
+.equal:hover {
+    background-color: rgb(119, 78, 3);
+}
+
+.c {
+    background-color: red;
+}
+
+.c:hover {
+    background-color: rgb(225, 114, 114);
+}
+
+.brace,
+.percent,
+.stop {
+    background-color: green;
+}
+
+.brace:hover,
+.percent:hover,
+.stop:hover {
+    background-color: rgb(124, 215, 124);
+}
