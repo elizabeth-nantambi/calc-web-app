@@ -1,3 +1,4 @@
+
 <?php
 $cookie_name1 = "num";
 $cookie_name2 = "operation";
@@ -16,12 +17,33 @@ if (isset($_POST['num'])) {
         $num = "";
         setcookie($cookie_name1, $num, time() + (86400 * 30), "/");
         setcookie($cookie_name2, "", time() + (86400 * 30), "/");
-    } else {
+    } elseif ($_POST['operation'] == '()') {
+        // Check if the last character in the expression is a closing parenthesis
+        $lastChar = substr($num, -1);
+        if ($lastChar == ')') {
+            // Append the clicked number within the parentheses
+            $num = substr($num, 0, -1); // Remove the closing parenthesis
+            $num .= $_POST['num']; // Append the number
+            $num .= ')'; // Re-append the closing parenthesis
+        } else {
+            // Append an opening parenthesis followed by the clicked number and a closing parenthesis
+            $num .= '(';
+            $num .= $_POST['num'];
+            $num .= ')';
+        }
+        // Update the 'num' cookie with the updated expression
+        setcookie($cookie_name1, $num, time() + (86400 * 30), "/");
+        // Update the 'operation' cookie to indicate the parentheses button was pressed
+        setcookie($cookie_name2, $_POST['operation'], time() + (86400 * 30), "/");
+    } 
+    else {
         $num .= $_POST['operation'];
         setcookie($cookie_name1, $num, time() + (86400 * 30), "/");
         setcookie($cookie_name2, $_POST['operation'], time() + (86400 * 30), "/");
     }
 }
+
+
 
 if (isset($_POST['equal'])) {
     $num = eval('return ' . $num . ';');
